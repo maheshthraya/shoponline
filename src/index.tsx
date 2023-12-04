@@ -1,3 +1,7 @@
+import '@fortawesome/fontawesome-free/css/all.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';

@@ -1,25 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
+import React , {useState} from 'react';
+import Message from './components/Message';
+import ComponentA from './components/propsdrilling/ComponentA';
+import { IUserInfo } from './components/propsdrilling/IUserInfo';
+import UserContext from './components/propsdrilling/UserContext';
+
 import './App.css';
 
-function App() {
+interface IProps{
+
+}
+
+interface IState{
+
+  userInfo : IUserInfo;
+
+}
+
+
+
+let App:React.FC<IProps> = () => {
+
+
+let [appState, setAppState] = useState<IState>({
+
+      userInfo : {
+        author: 'Mahesh',
+        channel: 'reactjs'
+      }
+
+    });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      
+      <small>{JSON.stringify(appState.userInfo)}</small>
+
+      <UserContext.Provider value={appState.userInfo}>
+      <ComponentA />
+      </UserContext.Provider>
+      
+    </React.Fragment>
   );
 }
 
